@@ -1,4 +1,3 @@
-# Encoding: utf-8
 # Cloud Foundry Java Buildpack
 # Copyright 2013-2017 the original author or authors.
 #
@@ -26,11 +25,12 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#detect)
       def detect
-        enabled? ? "#{Jmx.to_s.dash_case}=#{port}" : nil
+        enabled? ? "#{self.class.to_s.dash_case}=#{port}" : nil
       end
 
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
+        puts "#{'----->'.red.bold} #{'JMX'.blue.bold} enabled on port #{port}"
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)

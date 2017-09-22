@@ -1,4 +1,3 @@
-# Encoding: utf-8
 # Cloud Foundry Java Buildpack
 # Copyright 2013-2017 the original author or authors.
 #
@@ -49,7 +48,7 @@ module JavaBuildpack
       private
 
       def jar(application)
-        (application.root + '**/lib/*.jar').glob.find { |jar| jar.to_s =~ @pattern }
+        (application.root + '**/*.jar').glob.find { |jar| jar.to_s =~ @pattern }
       end
 
     end
